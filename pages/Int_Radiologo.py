@@ -4,6 +4,7 @@ from streamlit_extras.switch_page_button import switch_page
 import numpy as np
 from PIL import Image, ImageOps
 import time
+import gdown
 
 page_bg = """
 <style>
@@ -55,7 +56,20 @@ if sel is not '-':
    
     # Obtenemos la imagen del Drive
     im = D.get_radiog(id)/255.
+    
+    
+    # 1fsQn5KIFKX4z33KTpvGYojf2uBQs9acu
+    
+    @st.experimental_memo
+    def download_data():
+        url = "https://drive.google.com/uc?id=1fsQn5KIFKX4z33KTpvGYojf2uBQs9acu";
+        output = 'weightsXception.h5';
+        gdown.download(url, output);
+    download_data()
 
+    
+    
+    
     model_path = 'weights.h5'
     pred, gradcam, spi = cad.DLO_predict(im*255., model_path)
     
