@@ -70,7 +70,7 @@ if sel is not '-':
     
     
     
-    model_path = 'weights.h5'
+    model_path = 'weightsXception.h5'
     pred, gradcam, spi = cad.DLO_predict(im*255., model_path)
     
     st.markdown("""
